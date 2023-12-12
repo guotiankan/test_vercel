@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wedding RSVP</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 10px;
+            padding: 10px;
+            text-align: center;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 20px;
+        }
+
+        form {
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        label, input, select, textarea {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+        }
+
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Wedding RSVP</h1>
+    <img src="{{ url_for('static', filename='wedding_cover.png') }}" alt="Wedding Invitation">
+
+    <form action="/rsvp" method="post">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="rsvp_status">RSVP Status:</label>
+        <select id="rsvp_status" name="rsvp_status" required>
+            <option value="attending">Attending</option>
+            <option value="not_attending">Not Attending</option>
+        </select>
+
+        <label for="dietary_preferences">Dietary Preferences:</label>
+        <textarea id="dietary_preferences" name="dietary_preferences"></textarea>
+
+        <input type="submit" value="Submit RSVP">
+    </form>
+</body>
+</html>
